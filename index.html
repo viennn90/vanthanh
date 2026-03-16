@@ -13,6 +13,7 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --accent: #38bdf8;
+            --sale-gradient: linear-gradient(135deg, #ff4d4d 0%, #f97316 100%);
         }
 
         * {
@@ -37,7 +38,7 @@
 
         .container {
             width: 100%;
-            max-width: 450px;
+            max-width: 600px;
             text-align: center;
         }
 
@@ -67,10 +68,21 @@
             line-height: 1.5;
         }
 
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+        .category-title {
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 24px 0 12px;
+            padding-left: 4px;
+            border-left: 4px solid var(--accent);
+            color: var(--text-main);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
         .link-card {
@@ -78,50 +90,56 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(12px);
             padding: 16px;
-            border-radius: 16px;
+            border-radius: 20px;
             text-decoration: none;
             color: var(--text-main);
             display: flex;
+            flex-direction: column;
             align-items: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            aspect-ratio: 1 / 1.1;
+            justify-content: center;
         }
 
         .link-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.1);
             border-color: var(--accent);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .link-icon {
             width: 50px;
             height: 50px;
             background: var(--primary-gradient);
-            border-radius: 12px;
-            margin-right: 16px;
+            border-radius: 50%;
+            margin-bottom: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.5rem;
             flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .link-info {
-            text-align: left;
+            text-align: center;
         }
 
         .link-title {
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
+            line-height: 1.2;
         }
 
         .link-desc {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
+            line-height: 1.3;
         }
 
         .badge {
@@ -130,11 +148,29 @@
             right: 10px;
             background: #ef4444;
             color: white;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             padding: 2px 8px;
             border-radius: 20px;
             font-weight: 700;
             text-transform: uppercase;
+        }
+
+        .mega-deal {
+            grid-column: span 2;
+            aspect-ratio: auto;
+            flex-direction: row;
+            text-align: left;
+            height: 80px;
+            justify-content: flex-start;
+        }
+
+        .mega-deal .link-icon {
+            margin-bottom: 0;
+            margin-right: 16px;
+        }
+
+        .mega-deal .link-info {
+            text-align: left;
         }
 
         .social-footer {
@@ -142,33 +178,27 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            padding-bottom: 40px;
         }
 
         .social-icon {
             color: var(--text-muted);
             font-size: 1.5rem;
             transition: color 0.3s;
+            text-decoration: none;
         }
 
         .social-icon:hover {
             color: var(--accent);
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .hot-link {
-            border: 2px solid var(--accent);
-            animation: borderPulse 2s infinite;
-        }
-
-        @keyframes borderPulse {
-            0% { border-color: var(--accent); box-shadow: 0 0 0 rgba(56, 189, 248, 0); }
-            50% { border-color: #60a5fa; box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
-            100% { border-color: var(--accent); box-shadow: 0 0 0 rgba(56, 189, 248, 0); }
+        @media (min-width: 600px) {
+            .links-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .mega-deal {
+                grid-column: span 3;
+            }
         }
     </style>
 </head>
@@ -180,87 +210,93 @@
             <p>Review đồ gia dụng & decor nhà cửa chuyên nghiệp <br> Chia sẻ deal hời mỗi ngày cho anh em</p>
         </div>
 
-        <div class="links-container">
-            <!-- MEGA SALE 4.4 SECTION -->
-            <a href="#" class="link-card mega-deal" style="background: linear-gradient(135deg, #ff4d4d 0%, #f97316 100%); border-color: #fca5a5;">
+        <!-- CATEGORY: MEGA SALE -->
+        <h2 class="category-title">🔥 SIÊU SALE 4.4</h2>
+        <div class="links-grid">
+            <a href="#" class="link-card mega-deal" style="background: var(--sale-gradient); border-color: #fca5a5;">
                 <span class="badge" style="background: #fff; color: #ff4d4d;">HOT</span>
-                <div class="link-icon">🔥</div>
+                <div class="link-icon">🎟️</div>
                 <div class="link-info">
-                    <span class="link-title" style="color: #fff;">ĐẠI TIỆC SIÊU SALE 4.4</span>
-                    <span class="link-desc" style="color: #fee2e2;">Tổng hợp mọi Voucher & Deal hời nhất Shopee</span>
+                    <span class="link-title" style="color: #fff;">TỔNG HỢP VOUCHER 4.4</span>
+                    <span class="link-desc" style="color: #fee2e2;">Lấy mã giảm giá & Freeship tại đây</span>
                 </div>
             </a>
-
-            <!-- Deal 1: Dreame L20 -->
             <a href="https://shopee.vn/search?keyword=dreame%20l20%20ultra" class="link-card">
-                <span class="badge">Giảm 5TR</span>
+                <span class="badge">HOT</span>
                 <div class="link-icon">🤖</div>
                 <div class="link-info">
-                    <span class="link-title">Robot Dreame L20 Ultra</span>
-                    <span class="link-desc">Giá hủy diệt đợt 4.4 - Tự động hóa 100%</span>
+                    <span class="link-title">Dreame L20</span>
+                    <span class="link-desc">Robot hút bụi AI</span>
                 </div>
             </a>
-
-            <!-- Deal 2: Smart Lighting -->
             <a href="#" class="link-card">
+                <span class="badge">SALE</span>
                 <div class="link-icon">💡</div>
                 <div class="link-info">
-                    <span class="link-title">Đèn LED Thông Minh Decor</span>
-                    <span class="link-desc">Mua 1 tặng 1 - Biến phòng ngủ thành studio</span>
+                    <span class="link-title">Đèn Smart LED</span>
+                    <span class="link-desc">Bắt trend cực mạnh</span>
                 </div>
             </a>
+        </div>
 
-            <!-- Original Links Below -->
-            <!-- Link 0: Xiaomi 15 -->
-            <a href="https://shopee.vn/search?keyword=xiaomi%2015%20snapdragon%208%20elite" class="link-card hot-link">
-                <span class="badge">Mới nhất</span>
+        <!-- CATEGORY: GIA DỤNG THÔNG MINH -->
+        <h2 class="category-title">🏠 GIA DỤNG THÔNG MINH</h2>
+        <div class="links-grid">
+            <a href="https://shopee.vn/search?keyword=xiaomi%2015%20snapdragon%208%20elite" class="link-card">
                 <div class="link-icon">📱</div>
                 <div class="link-info">
-                    <span class="link-title">Xiaomi 15 - Chip Snapdragon 8 Elite</span>
-                    <span class="link-desc">Siêu phẩm Leica, hiệu năng hủy diệt - Ưu đãi tại đây</span>
+                    <span class="link-title">Xiaomi 15</span>
+                    <span class="link-desc">Chip Snapdragon 8 Elite</span>
                 </div>
             </a>
-
-            <!-- Link 1: Xiaomi 4 Compact -->
-            <a href="https://shopee.vn/search?keyword=xiaomi%20smart%20air%20purifier%204%20compact" class="link-card hot-link">
-                <span class="badge">Bán chạy</span>
+            <a href="https://shopee.vn/search?keyword=xiaomi%20smart%20air%20purifier%204%20compact" class="link-card">
                 <div class="link-icon">🌬️</div>
                 <div class="link-info">
-                    <span class="link-title">Máy lọc không khí Xiaomi 4 Compact</span>
-                    <span class="link-desc">Vừa decor đẹp vừa lọc bụi mịn PM2.5 - Hot Trend 2025</span>
+                    <span class="link-title">Xiaomi 4 Compact</span>
+                    <span class="link-desc">Lọc bụi PM2.5</span>
                 </div>
             </a>
+        </div>
 
-            <!-- Link 2: Danh sách đồ decor -->
+        <!-- CATEGORY: DECOR & SETUP -->
+        <h2 class="category-title">🎨 DECOR & SETUP</h2>
+        <div class="links-grid">
             <a href="#" class="link-card">
-                <div class="link-icon">🎨</div>
+                <div class="link-icon">🎭</div>
                 <div class="link-info">
-                    <span class="link-title">Tổng hợp đồ Decor Phòng</span>
-                    <span class="link-desc">Tất cả đồ mình dùng trong Video TikTok</span>
+                    <span class="link-title">Đồ Decor Phòng</span>
+                    <span class="link-desc">Tổng hợp mẫu đẹp</span>
                 </div>
             </a>
-
-            <!-- Link 3: Setup công nghệ -->
             <a href="#" class="link-card">
                 <div class="link-icon">💻</div>
                 <div class="link-info">
-                    <span class="link-title">Góc Setup Công Nghệ</span>
-                    <span class="link-desc">Màn hình, Arm màn hình, Loa Marshall...</span>
+                    <span class="link-title">Góc Setup</span>
+                    <span class="link-desc">Phụ kiện công nghệ</span>
                 </div>
             </a>
+        </div>
 
-            <!-- Link 4: Group Zalo săn deal -->
+        <!-- CATEGORY: CỘNG ĐỒNG -->
+        <h2 class="category-title">🤝 KẾT NỐI CỘNG ĐỒNG</h2>
+        <div class="links-grid">
             <a href="#" class="link-card">
                 <div class="link-icon">💬</div>
                 <div class="link-info">
-                    <span class="link-title">Group Zalo Săn Deal Kín</span>
-                    <span class="link-desc">Cập nhật mã giảm giá Shopee/Lazada sớm nhất</span>
+                    <span class="link-title">Group Zalo</span>
+                    <span class="link-desc">Săn deal kín 24/7</span>
+                </div>
+            </a>
+            <a href="https://www.facebook.com/hebes.fhmjt" target="_blank" class="link-card">
+                <div class="link-icon">🌐</div>
+                <div class="link-info">
+                    <span class="link-title">Facebook</span>
+                    <span class="link-desc">Theo dõi Vân Thanh</span>
                 </div>
             </a>
         </div>
 
         <div class="social-footer">
-            <!-- Social links -->
             <a href="https://www.facebook.com/hebes.fhmjt" target="_blank" class="social-icon">FB</a>
             <a href="#" class="social-icon">TT</a>
             <a href="#" class="social-icon">YT</a>
