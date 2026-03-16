@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Decor - Tổng hợp Deal xịn & Đồ hay ho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-color: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(100, 126, 234, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 20%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .profile {
+            margin-bottom: 32px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 16px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .profile h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .profile p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 16px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .link-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 12px;
+            margin-right: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .link-info {
+            text-align: left;
+        }
+
+        .link-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .social-footer {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--accent);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hot-link {
+            border: 2px solid var(--accent);
+            animation: borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0% { border-color: var(--accent); box-shadow: 0 0 0 rgba(56, 189, 248, 0); }
+            50% { border-color: #60a5fa; box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            100% { border-color: var(--accent); box-shadow: 0 0 0 rgba(56, 189, 248, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="./vietnamese_koc_profile.png" alt="Minh Decor" class="profile-img">
+            <h1>Minh Decor ✅</h1>
+            <p>Review đồ công nghệ & decor phòng làm việc <br> Săn deal xịn mỗi ngày cho anh em</p>
+        </div>
+
+        <div class="links-container">
+            <!-- Link 1: Xiaomi 4 Compact -->
+            <a href="https://shopee.vn/search?keyword=xiaomi%20smart%20air%20purifier%204%20compact" class="link-card hot-link">
+                <span class="badge">Bán chạy</span>
+                <div class="link-icon">🌬️</div>
+                <div class="link-info">
+                    <span class="link-title">Máy lọc không khí Xiaomi 4 Compact</span>
+                    <span class="link-desc">Vừa decor đẹp vừa lọc bụi mịn PM2.5 - Hot Trend 2025</span>
+                </div>
+            </a>
+
+            <!-- Link 2: Danh sách đồ decor -->
+            <a href="#" class="link-card">
+                <div class="link-icon">🎨</div>
+                <div class="link-info">
+                    <span class="link-title">Tổng hợp đồ Decor Phòng</span>
+                    <span class="link-desc">Tất cả đồ mình dùng trong Video TikTok</span>
+                </div>
+            </a>
+
+            <!-- Link 3: Setup công nghệ -->
+            <a href="#" class="link-card">
+                <div class="link-icon">💻</div>
+                <div class="link-info">
+                    <span class="link-title">Góc Setup Công Nghệ</span>
+                    <span class="link-desc">Màn hình, Arm màn hình, Loa Marshall...</span>
+                </div>
+            </a>
+
+            <!-- Link 4: Group Zalo săn deal -->
+            <a href="#" class="link-card">
+                <div class="link-icon">💬</div>
+                <div class="link-info">
+                    <span class="link-title">Group Zalo Săn Deal Kín</span>
+                    <span class="link-desc">Cập nhật mã giảm giá Shopee/Lazada sớm nhất</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="social-footer">
+            <!-- Placeholder for social icons -->
+            <a href="#" class="social-icon">FB</a>
+            <a href="#" class="social-icon">TT</a>
+            <a href="#" class="social-icon">YT</a>
+            <a href="#" class="social-icon">IG</a>
+        </div>
+    </div>
+</body>
+</html>
